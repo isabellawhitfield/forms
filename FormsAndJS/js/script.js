@@ -23,7 +23,7 @@ var n = parseInt(prompt('Enter the number of employees'));
 
 document.getElementById('saveData').addEventListener('click', function(){
     console.log(names.length);
-     if (names.length < n){
+  if (names.length < n) {
 
     var ename = document.getElementById('ename').value;
     console.log(ename);
@@ -49,9 +49,18 @@ document.getElementById('saveData').addEventListener('click', function(){
     projectC.push(projC);
     averagePerformance.push(average);
     console.log(names, projectA, projectB, projectC, averagePerformance);
-     } else {
-         alert('Sorry, cannot store more employees\' details'); 
-     }
+
+    if (average >= 90) {
+      document.getElementById('formsData').innerHTML += '<br/>' + ename + ", you eligible for increment";
+    } else if (average >= 70) {
+      document.getElementById('formsData').innerHTML += '<br/>' + ename + ", you are eligible to continue in project team";
+    } else {
+      document.getElementById('formsData').innerHTML += '<br/>' + ename + ", you will have to change designation";
+    }
+
+  } else {
+      alert('Sorry, cannot store more employees\' details');
+  }
 });
 
 document.getElementById('anotherData').addEventListener('click',function() {
@@ -63,7 +72,5 @@ document.getElementById('anotherData').addEventListener('click',function() {
 });
 
 
-if (average >= 90)
- document.getElementById('increment') + name + "eligible for increment"; 
 
 
